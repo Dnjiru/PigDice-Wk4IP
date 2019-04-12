@@ -4,7 +4,8 @@
     box-sizing: border-box;
     width: 100%;
     padding: 0px;
-    background-image: url("../img/background1.JPG");
+    background-color: #777;
+    background-image: url("../img/backgrd1.JPG");
     background-size: cover;
         color: #001f75;
 }
