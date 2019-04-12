@@ -58,5 +58,36 @@ Player.prototype.roll = function () {
     this.turnTotal += randomNo;
   };
   return this.diceRoll;
+};
+
+//When Player Holds the Game Function.
+Player.prototype.hold = function () {
+  activeUser();
+  this.overallScore += this.turnTotal;
+  if (this.overallScore >= 100) {
+    alert("Game Over! You Win!!!");
+    resetFields();
+    alert('To play with a new partner click New Game.')
+  } else {
+    return false;
+  }
+  console.log('the turn total is: ' + this.turnTotal);
+  return this.overallScore;
+};
+
+//Function to reset the form input fields, re-enable the buttons and Scores.
+function resetFields() {
+  $("input#player1Name").val("");
+  $("input#player2Name").val("");
+  $('.player1Area').children().prop('disabled',false);
+  $('.player2Area').children().prop('disabled',false);
+  $('.player1Area').removeClass('disableGamingArea');
+  $('.player2Area').removeClass('disableGamingArea');
+  var thePlayers = [player1, player2];
+  thePlayers.forEach(function (player) {
+    player.diceRoll = 0;
+    player.turnTotal = 0;
+    player.overallScore = 0;
+  })
 }
 
