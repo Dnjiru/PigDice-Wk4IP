@@ -146,6 +146,21 @@ $('.roll2').click(function (event) { //roll button for player2
   $('.turnScore2').text(player2.turnTotal); //display the turn score (temporary score)
 });
 
+//Display overall score when the hold button is clicked
+$('.hold1').click(function (event) { //hold button for player1
+  event.preventDefault();
+  //Deactivate Gaming Area
+  player1.active = false;
+  player2.active = true;
+  player1.hold(); //call the function to add the turn score to the overall score
+  $('.overallScore1').text(player1.overallScore); //display the overall score
+  //Clear dice roll and turn score
+  player1.diceRoll = 0;
+  player1.turnTotal = 0;
+  $('.diceRoll1').text(player1.diceRoll);
+  $('.turnScore1').text(player1.turnTotal);
+});
+
 
 })
 
