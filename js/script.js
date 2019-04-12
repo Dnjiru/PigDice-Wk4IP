@@ -89,5 +89,10 @@ function resetFields() {
     player.turnTotal = 0;
     player.overallScore = 0;
   })
-}
+  var outputs = [$('.diceRoll1'), $('.turnScore'), $('.overallScore'), $('.diceRoll2'), $('.turnScore2'), $('overallScore2')];
+  outputs.forEach(function (output) {
+    output.text(0);
+  })
+};
+
 
