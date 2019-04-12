@@ -136,6 +136,16 @@ $(document).ready(function () {
     $('.diceRoll1').text(player1.diceRoll); //display the rolled dice number
     $('.turnScore1').text(player1.turnTotal); //display the turn score (temporary score)
 });
+$('.roll2').click(function (event) { //roll button for player2
+  event.preventDefault();
+  //Activate Gaming Area
+  player2.active = true;
+  player1.active = false;
+  player2.roll(); //call the function to generate random numbers
+  $('.diceRoll2').text(player2.diceRoll); //display the rolled dice number
+  $('.turnScore2').text(player2.turnTotal); //display the turn score (temporary score)
+});
+
 
 })
 
