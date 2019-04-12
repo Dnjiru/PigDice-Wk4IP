@@ -160,7 +160,19 @@ $('.hold1').click(function (event) { //hold button for player1
   $('.diceRoll1').text(player1.diceRoll);
   $('.turnScore1').text(player1.turnTotal);
 });
-
+$('.hold2').click(function (event) { //hold button for player2
+  event.preventDefault();
+  //Deactivate Gaming Area
+  player2.active = false;
+  player1.active = true;
+  player2.hold(); //call the function to add the turn score to the overall score
+  $('.overallScore2').text(player2.overallScore); //display the overall score
+  //Clear turn score and total score
+  player2.diceRoll = 0;
+  player2.turnTotal = 0;
+  $('.diceRoll2').text(player2.diceRoll);
+  $('.turnScore2').text(player2.turnTotal);
+});
 
 })
 
