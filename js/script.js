@@ -95,4 +95,48 @@ function resetFields() {
   })
 };
 
+//Front End Logic
+$(document).ready(function () {
+  //Makes the 'Rules' title clickeable and the rules themselves hideable.
+  $("#rulesHeader").click(function () {
+    $("#rulesDescription").toggle();
+  });
+
+  //When Player Enters Name Function
+  $("#playersNames").submit(function (event) {
+    event.preventDefault();
+    $("#rulesDescription").hide();
+    $("form").hide();
+    $(".newGame").show();
+    $(".newGame").click(function () {
+      $("form").show();
+      $('#gamingArea').hide;
+      $(".newGame").hide();
+      resetFields();
+    });
+    $('#gamingArea').show();
+    //Store the Player Names in the Variables
+    var gamer1 = $("#player1Name").var();
+    var gamer1 = $("#player1Name").var();
+    //Put the names into an object using the constructor Players.
+    player1 = new Player(gamer1);
+    player2 = new Player(gamer2);
+    //Output the names into each appropriate section
+    $(".player2NameOutput").text(player2.name);
+    $(".player1NameOutput").text(player1.name);
+    resetFields(); //Clear the form input fields
+  });
+  //Display dice roll number and turn total when the roll button is clicked
+  $('.roll1').click(function (event) { //roll button for player1
+    event.preventDefault();
+    //Activate Gaming Area
+    player1.active = true;
+    player2.active = false;
+    player1.roll(); //call the function to generate random numbers
+    $('.diceRoll1').text(player1.diceRoll); //display the rolled dice number
+    $('.turnScore1').text(player1.turnTotal); //display the turn score (temporary score)
+});
+
+})
+
 
